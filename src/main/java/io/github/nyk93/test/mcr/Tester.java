@@ -1,4 +1,4 @@
-package com.github.nyk93.test.mcr;
+package io.github.nyk93.test.mcr;
 
 /**
  * Maven Central Repository Tester.
