@@ -6,7 +6,7 @@
 
   <groupId>io.github.nyk93</groupId>
   <artifactId>test-mcr</artifactId>
-  <version>1.0</version>
+  <version>1.0.1-SNAPSHOT</version>
 
   <name>Test-Mcr</name>
   <description>This is made for testing maven central repository deployment</description>
@@ -51,6 +51,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>3.9.0</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <finalName>${project.artifactId}-${project.version}</finalName>

@@ -1,5 +1,15 @@
 package io.github.nyk93.test.mcr;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Objects;
+import org.apache.maven.model.Model;
+import org.apache.maven.model.io.xpp3.MavenXpp3Reader;
+import org.codehaus.plexus.util.xml.pull.XmlPullParserException;
+
 /**
  * Maven Central Repository Tester.
  *
@@ -24,8 +34,24 @@ public class Tester {
     /**
      * print version.
      */
-    public void getVersion() {
-        System.out.println(getClass().getPackage().getImplementationVersion());
+    public void printVersion() throws IOException, XmlPullParserException {
+        final String pomFilename = "pom.xml";
+        MavenXpp3Reader reader = new MavenXpp3Reader();
+        Model model;
+
+        if ((new File("pom.xml")).exists()) {
+            model = reader.read(new FileReader(pomFilename));
+        } else {
+            model = reader.read(
+                new InputStreamReader(
+                    Objects.requireNonNull(Tester.class.getResourceAsStream(
+                        String.format("/META-INF/maven/io.github.nyk93/test-mcr/%s", pomFilename)
+                    ))
+                )
+            );
+        }
+
+        System.out.println(model.getVersion());
     }
 
 }
