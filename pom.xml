@@ -6,7 +6,7 @@
 
   <groupId>io.github.nyk93</groupId>
   <artifactId>test-mcr</artifactId>
-  <version>1.0.1-SNAPSHOT</version>
+  <version>1.0.1</version>
 
   <name>Test-Mcr</name>
   <description>This is made for testing maven central repository deployment</description>

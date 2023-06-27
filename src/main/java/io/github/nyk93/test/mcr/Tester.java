@@ -41,17 +41,11 @@ public class Tester {
 
         if ((new File("pom.xml")).exists()) {
             model = reader.read(new FileReader(pomFilename));
-        } else {
-            model = reader.read(
-                new InputStreamReader(
-                    Objects.requireNonNull(Tester.class.getResourceAsStream(
-                        String.format("/META-INF/maven/io.github.nyk93/test-mcr/%s", pomFilename)
-                    ))
-                )
-            );
-        }
 
-        System.out.println(model.getVersion());
+            System.out.println(model.getVersion());
+        } else {
+            System.out.println("Unknown version");
+        }
     }
 
 }
