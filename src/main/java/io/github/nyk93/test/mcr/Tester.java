@@ -21,4 +21,11 @@ public class Tester {
         System.out.println(MESSAGE);
     }
 
+    /**
+     * print version.
+     */
+    public void getVersion() {
+        System.out.println(getClass().getPackage().getImplementationVersion());
+    }
+
 }
